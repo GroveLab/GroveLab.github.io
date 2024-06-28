@@ -20,14 +20,12 @@
             overflow: hidden;
         }
         video {
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            object-fit: cover;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
         .content {
             position: relative;
@@ -43,6 +41,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
+            font-size: 2.5vw; /* Responsive font size */
         }
     </style>
 </head>
