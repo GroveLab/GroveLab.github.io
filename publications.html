@@ -125,7 +125,7 @@
     </main>
 
     <script>
-       const orcidId = '0000-0001-5390-7579'; // Replace with the lab's ORCID ID
+        const orcidId = '0000-0001-5390-7579'; // Replace with the lab's ORCID ID
         const orcidApiUrl = `https://pub.orcid.org/v3.0/${orcidId}/works`;
 
         async function fetchPublications() {
@@ -150,8 +150,14 @@
             const publicationsContainer = document.getElementById('publications');
             publications.forEach(pub => {
                 const work = pub['work-summary'][0];
-                const title = work.title.title.value;
                 const year = work['publication-date'] ? work['publication-date'].year.value : 'N/A';
+
+                // Filter out publications before 2016
+                if (year < 2016) {
+                    return;
+                }
+
+                const title = work.title.title.value;
                 const journalTitle = work['journal-title'] ? work['journal-title'].value : 'Pre-Print';
                 const doi = work['external-ids']['external-id'].find(id => id['external-id-type'] === 'doi');
                 const doiUrl = doi ? `https://doi.org/${doi['external-id-value']}` : null;
