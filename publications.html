@@ -148,7 +148,7 @@
                 const work = pub['work-summary'][0];
                 const title = work.title.title.value;
                 const year = work['publication-date'] ? work['publication-date'].year.value : 'N/A';
-                const journalTitle = work['journal-title'] ? work['journal-title'].value : 'N/A';
+                const journalTitle = work['journal-title'] ? work['journal-title'].value : 'Pre-Print';
                 const doi = work['external-ids']['external-id'].find(id => id['external-id-type'] === 'doi');
                 const doiUrl = doi ? `https://doi.org/${doi['external-id-value']}` : null;
 
