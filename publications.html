@@ -21,18 +21,22 @@
             padding: 0 20px;
         }
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
-            top: 0;
+            top: -60px; /* Start off-screen */
             z-index: 1000;
+            transition: top 0.3s ease-in-out;
+        }
+        header:hover, header:focus-within {
+            top: 0; /* Slide down when hovered or focused */
         }
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .logo {
             font-size: 24px;
@@ -54,12 +58,13 @@
             color: #0077be;
         }
         main {
-            padding-top: 400px; /* Increased padding-top */
+            padding-top: 40px; /* Reduced padding as header is now hidden by default */
         }
         h1 {
             text-align: center;
             color: #0077be;
-            margin-bottom: 40px; /* Added margin-bottom */
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
         #publications {
             display: grid;
@@ -100,18 +105,16 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Grove Lab</a>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="research.html">Research</a>
-                    <a href="team.html">Team</a>
-                    <a href="publications.html">Publications</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </nav>
-        </div>
+        <nav>
+            <a href="index.html" class="logo">Grove Lab</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="team.html">Team</a>
+                <a href="publications.html">Publications</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <main class="container">
@@ -122,7 +125,7 @@
     </main>
 
     <script>
-        const orcidId = '0000-0001-5390-7579'; // Replace with the lab's ORCID ID
+       const orcidId = '0000-0001-5390-7579'; // Replace with the lab's ORCID ID
         const orcidApiUrl = `https://pub.orcid.org/v3.0/${orcidId}/works`;
 
         async function fetchPublications() {
