@@ -1,11 +1,11 @@
 // This file contains JavaScript code that implements the functionality for the slideshow feature on the website, including image transitions and dynamic loading of images.
 
+const slideshow = document.getElementById('slideshow');
 let currentSlide = 0;
 let slides = [];
 
 // Function to load images from the slideshow folder
 function loadSlideshow() {
-    const slideshow = document.getElementById('slideshow');
     const imageNames = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
     
     imageNames.forEach((imageName, index) => {
