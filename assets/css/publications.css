@@ -1,0 +1,65 @@
+header {
+    position: fixed;
+    width: 100%;
+    top: -60px;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
+}
+
+header:hover, header:focus-within {
+    top: 0;
+}
+
+main {
+    padding-top: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #0077be;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#publications {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.publication {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.publication:hover {
+    transform: translateY(-5px);
+}
+
+.publication h3 {
+    margin-top: 0;
+    color: #0077be;
+}
+
+.publication p {
+    margin: 10px 0;
+}
+
+.publication a {
+    color: #0077be;
+    text-decoration: none;
+}
+
+.publication a:hover {
+    text-decoration: underline;
+}
+
+#loading, #error {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+}
