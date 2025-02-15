@@ -1,0 +1,16 @@
+{
+  "name": "grovelab-website",
+  "version": "1.0.0",
+  "description": "A website for Grove Lab showcasing research, team, and publications.",
+  "main": "src/pages/index.html",
+  "scripts": {
+    "start": "live-server src/pages",
+    "build": "echo 'Build step not defined'",
+    "test": "echo 'No tests defined'"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "Grove Lab",
+  "license": "MIT"
+}
