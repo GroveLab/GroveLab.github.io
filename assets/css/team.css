@@ -1,5 +1,5 @@
 main {
-    padding-top: 100px;
+    padding-top: 80px; /* Reduced since we removed the title */
 }
 
 h1 {
@@ -82,7 +82,7 @@ team-member h3 {
     transition: color 0.3s ease;
 }
 
-.social-links a:hover {
+social-links a:hover {
     color: #005fa3;
 }
 
