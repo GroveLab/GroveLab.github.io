@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grove Lab - Publications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Avenir:wght@300;400;700&display=swap');
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Avenir', sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            position: fixed;
+            width: 100%;
+            top: -60px; /* Start off-screen */
+            z-index: 1000;
+            transition: top 0.3s ease-in-out;
+        }
+        header:hover, header:focus-within {
+            top: 0; /* Slide down when hovered or focused */
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #0077be;
+        }
+        main {
+            padding-top: 40px; /* Reduced padding as header is now hidden by default */
+        }
+        h1 {
+            text-align: center;
+            color: #0077be;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        #publications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .publication {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .publication:hover {
+            transform: translateY(-5px);
+        }
+        .publication h3 {
+            margin-top: 0;
+            color: #0077be;
+        }
+        .publication p {
+            margin: 10px 0;
+        }
+        .publication a {
+            color: #0077be;
+            text-decoration: none;
+        }
+        .publication a:hover {
+            text-decoration: underline;
+        }
+        #loading, #error {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Grove Lab</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="team.html">Team</a>
+                <a href="publications.html">Publications</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Our Publications</h1>
+        <div id="loading">Loading publications...</div>
+        <div id="error" style="display: none;"></div>
+        <div id="publications"></div>
+    </main>
+
+    <script>
+        const orcidId = '0000-0001-5390-7579'; // Replace with the lab's ORCID ID
+        const orcidApiUrl = `https://pub.orcid.org/v3.0/${orcidId}/works`;
+
+        async function fetchPublications() {
+            try {
+                const response = await fetch(orcidApiUrl, {
+                    headers: {
+                        'Accept': 'application/vnd.orcid+json'
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to fetch publications');
+                }
+                const data = await response.json();
+                return data.group;
+            } catch (error) {
+                console.error('Error:', error);
+                throw error;
+            }
+        }
+
+        function displayPublications(publications) {
+            const publicationsContainer = document.getElementById('publications');
+            publications.forEach(pub => {
+                const work = pub['work-summary'][0];
+                const year = work['publication-date'] ? work['publication-date'].year.value : 'N/A';
+
+                // Filter out publications before 2016
+                if (year < 2016) {
+                    return;
+                }
+
+                const title = work.title.title.value;
+                const journalTitle = work['journal-title'] ? work['journal-title'].value : 'Pre-Print';
+                const doi = work['external-ids']['external-id'].find(id => id['external-id-type'] === 'doi');
+                const doiUrl = doi ? `https://doi.org/${doi['external-id-value']}` : null;
+
+                const pubElement = document.createElement('div');
+                pubElement.className = 'publication';
+                pubElement.innerHTML = `
+                    <h3>${title}</h3>
+                    <p><strong>Year:</strong> ${year}</p>
+                    <p><strong>Journal:</strong> ${journalTitle}</p>
+                    ${doiUrl ? `<p><a href="${doiUrl}" target="_blank">View Publication</a></p>` : ''}
+                `;
+                publicationsContainer.appendChild(pubElement);
+            });
+        }
+
+        async function loadPublications() {
+            const loadingElement = document.getElementById('loading');
+            const errorElement = document.getElementById('error');
+
+            try {
+                const publications = await fetchPublications();
+                loadingElement.style.display = 'none';
+                displayPublications(publications);
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.textContent = 'Failed to load publications. Please try again later.';
+                errorElement.style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPublications);
+    </script>
+</body>
+</html>

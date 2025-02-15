@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grove Lab - Virology & Machine Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Avenir:wght@300;400;700&display=swap');
+        
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Avenir', sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #0077be;
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slideshow img.active {
+            opacity: 1;
+        }
+        .section {
+            padding: 80px 0;
+        }
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            flex: 1;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .card p {
+            margin-bottom: 20px;
+        }
+        .card i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #0077be;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0077be;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #005fa3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Grove Lab</a>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#research">Research</a>
+                    <a href="#team">Team</a>
+                    <a href="publications">Publications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div id="slideshow" class="slideshow">
+                <!-- Images will be dynamically inserted here -->
+            </div>
+            <div class="hero-content">
+                <h1>Molecular Virology Meets AI</h1>
+                <p>We apply state-of-the-art biological AI to enable and accelerate discoveries in molecular virology</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Explore Our Work</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <i class="fas fa-microscope"></i>
+                        <h3>Research</h3>
+                        <p>Learn more about our work</p>
+                        <a href="#research" class="btn">View Research</a>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-users"></i>
+                        <h3>Our Team</h3>
+                        <p>Meet the team</p>
+                        <a href="#team" class="btn">Meet the Team</a>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Publications</h3>
+                        <p>Explore our latest publications</p>
+                        <a href="publications" class="btn">Read Publications</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Grove Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic Slideshow functionality
+        const slideshow = document.getElementById('slideshow');
+        let currentSlide = 0;
+        let slides = [];
+
+        // Function to load images from the slideshow folder
+        function loadSlideshow() {
+            // In a real scenario, you would need to implement server-side code to read the directory
+            // For this example, we'll simulate it with a fixed array of image names
+            const imageNames = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+            
+            imageNames.forEach((imageName, index) => {
+                const img = document.createElement('img');
+                img.src = `slideshow/${imageName}`;
+                img.alt = `Slide ${index + 1}`;
+                if (index === 0) img.classList.add('active');
+                slideshow.appendChild(img);
+                slides.push(img);
+            });
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Load the slideshow when the page is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSlideshow();
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        });
+    </script>
+</body>
+</html>
