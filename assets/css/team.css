@@ -1,0 +1,99 @@
+main {
+    padding-top: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: #0077be;
+    margin-bottom: 40px;
+}
+
+.team-section {
+    margin-bottom: 60px;
+}
+
+.team-section h2 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.team-member {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+team-member h3 {
+    color: #0077be;
+    margin: 10px 0;
+}
+
+.position {
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.bio {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-links a {
+    color: #0077be;
+    font-size: 22px; /* Return to original size for email icon */
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #005fa3;
+}
+
+.bluesky-icon {
+    width: 33px;
+    height: 33px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    margin-top: 4px; /* Adjusted margin to center icon */ 
+}
+
+.social-links a:hover .bluesky-icon {
+    opacity: 1;
+}
