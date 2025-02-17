@@ -186,6 +186,10 @@ main {
         gap: 10px;
     }
 
+    .hero {
+        height: 60vh; /* Adjust height for smaller screens */
+    }
+
     .hero h1 {
         font-size: 36px;
     }
@@ -200,6 +204,10 @@ main {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        height: 50vh; /* Further adjust height for very small screens */
+    }
+
     .hero h1 {
         font-size: 28px;
     }
