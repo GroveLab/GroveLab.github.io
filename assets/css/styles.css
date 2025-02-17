@@ -179,8 +179,52 @@ main {
     height: 80px; /* Adjust the height as needed */
 }
 
+/* New mobile menu button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 0;
+}
+
 /* Add media queries for better responsiveness */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links a.active {
+        border-bottom: none;
+        color: #0077be;
+    }
+
     .nav-links {
         flex-direction: column;
         gap: 10px;
