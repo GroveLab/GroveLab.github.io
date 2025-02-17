@@ -1,4 +1,5 @@
 main {
+    margin-top: 80px; /* Match the header height */
     padding-top: 80px; /* Reduced since we removed the title */
 }
 

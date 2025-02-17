@@ -21,6 +21,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    height: 80px; /* Add fixed height */
 }
 
 nav {
@@ -154,4 +155,20 @@ nav {
 
 .slideshow img.active {
     opacity: 1;
+}
+
+main {
+    margin-top: 80px; /* Change from padding-top to margin-top */
+    position: relative;
+}
+
+.visually-hidden {
+    position: absolute;
+    height: 100px;
+    width: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }

@@ -1,4 +1,4 @@
-/* Remove the header hover behavior and dynamic positioning */
+/* Remove these overrides since we're using the main styles */
 header {
     position: fixed;
     width: 100%;
@@ -15,7 +15,7 @@ header:hover, header:focus-within {
 
 /* Increase padding to prevent content from going under header */
 main {
-    padding-top: 100px;  /* Increased from 80px to account for header height */
+    margin-top: 80px; /* Match the header height */
 }
 
 /* Remove h1 styles since we're not using it anymore */
