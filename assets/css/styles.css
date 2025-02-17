@@ -75,6 +75,7 @@ nav {
 .hero-content {
     position: relative;
     z-index: 2;
+    padding: 0 20px; /* Add padding for better text readability on mobile */
 }
 
 .hero h1 {
@@ -91,11 +92,12 @@ nav {
 }
 
 .section {
-    padding: 80px 0;
+    padding: 80px 20px; /* Add padding for better spacing on mobile */
 }
 
 .card-container {
     display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
     justify-content: space-between;
     gap: 30px;
 }
@@ -105,7 +107,7 @@ nav {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     padding: 30px;
-    flex: 1;
+    flex: 1 1 calc(33.333% - 30px); /* Adjust card width for better responsiveness */
     transition: transform 0.3s ease;
     text-align: center;
 }
@@ -171,4 +173,38 @@ main {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+.spacer {
+    height: 80px; /* Adjust the height as needed */
+}
+
+/* Add media queries for better responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .card {
+        flex: 1 1 100%; /* Make cards full width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
 }

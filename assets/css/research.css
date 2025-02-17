@@ -1,0 +1,28 @@
+main {
+    margin-top: 80px; /* Match the header height */
+}
+
+h1 {
+    text-align: center;
+    color: #0077be;
+    margin-bottom: 40px;
+}
+
+.research-section {
+    margin-bottom: 60px;
+}
+
+.research-section h2 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.research-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.research-section ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
