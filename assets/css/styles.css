@@ -190,6 +190,16 @@ main {
     padding: 0;
 }
 
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none !important; /* Force hide on larger screens */
+    }
+    
+    .nav-links {
+        display: flex !important; /* Force display on larger screens */
+    }
+}
+
 /* Add media queries for better responsiveness */
 @media (max-width: 768px) {
     .menu-toggle {

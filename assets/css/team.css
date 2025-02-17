@@ -98,3 +98,15 @@ social-links a:hover {
 .social-links a:hover .bluesky-icon {
     opacity: 1;
 }
+
+/* Ensure these don't conflict with the mobile menu */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-image {
+        width: 150px;
+        height: 150px;
+    }
+}
