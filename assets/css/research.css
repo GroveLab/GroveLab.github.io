@@ -26,3 +26,52 @@ h1 {
     margin-bottom: 10px;
     color: #555;
 }
+
+.research-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.research-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Changed from cover to contain */
+    aspect-ratio: 4/3;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.research-text {
+    flex: 1;
+}
+
+.banner {
+    background-color: #f5f5f5;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.banner h2 {
+    color: #0077be;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .research-content {
+        flex-direction: column;
+    }
+
+    .research-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* Changed from cover to contain */
+        aspect-ratio: 16/9;
+        margin-bottom: 20px;
+    }
+}
