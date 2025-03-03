@@ -57,6 +57,11 @@ team-member h3 {
     margin: 10px 0;
 }
 
+.team-member h3 {
+    color: #0077be;
+    margin: 10px 0;
+}
+
 .position {
     font-weight: 600;
     color: #666;
@@ -68,6 +73,8 @@ team-member h3 {
     line-height: 1.5;
     color: #555;
     margin-bottom: 20px;
+    height: 120px; /* Set fixed height for bios to align items */
+    overflow-y: auto; /* Allow scrolling for longer bios */
 }
 
 .social-links {
@@ -83,20 +90,32 @@ team-member h3 {
     transition: color 0.3s ease;
 }
 
-social-links a:hover {
+.social-links a:hover {
     color: #005fa3;
 }
 
-.bluesky-icon {
-    width: 33px;
-    height: 33px;
+.social-links a:hover {
+    color: #005fa3;
+}
+
+.bluesky-icon, .orcid-icon {
+    width: 24px;
+    height: 24px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
     margin-top: 4px; /* Adjusted margin to center icon */ 
 }
 
-.social-links a:hover .bluesky-icon {
+.social-links a:hover .bluesky-icon,
+.social-links a:hover .orcid-icon {
     opacity: 1;
+}
+
+.expertise {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 12px;
+    font-style: italic;
 }
 
 /* Ensure these don't conflict with the mobile menu */
