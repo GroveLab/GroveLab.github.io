@@ -19,6 +19,26 @@ async function fetchPublications() {
     }
 }
 
+function createPublicationElement(publication) {
+    const pubElement = document.createElement('div');
+    pubElement.className = 'publication';
+    
+    // Format authors (assuming publication.authors is an array)
+    const authors = Array.isArray(publication.authors) 
+        ? publication.authors.join(', ') 
+        : publication.authors;
+    
+    // Create publication HTML with clickable title instead of separate button
+    pubElement.innerHTML = `
+        <h2><a href="${publication.url}" target="_blank" rel="noopener noreferrer">${publication.title}</a></h2>
+        <p class="authors">${authors}</p>
+        <p class="journal">${publication.journal}, ${publication.year}</p>
+        ${publication.doi ? `<p class="doi">DOI: <a href="https://doi.org/${publication.doi}" target="_blank" rel="noopener noreferrer">${publication.doi}</a></p>` : ''}
+    `;
+    
+    return pubElement;
+}
+
 function displayPublications(publications) {
     const publicationsContainer = document.getElementById('publications');
     publications.forEach(pub => {
@@ -37,10 +57,9 @@ function displayPublications(publications) {
         const pubElement = document.createElement('div');
         pubElement.className = 'publication';
         pubElement.innerHTML = `
-            <h3>${title}</h3>
+            <h3>${doiUrl ? `<a href="${doiUrl}" target="_blank">${title}</a>` : title}</h3>
             <p><strong>Year:</strong> ${year}</p>
             <p><strong>Journal:</strong> ${journalTitle}</p>
-            ${doiUrl ? `<p><a href="${doiUrl}" target="_blank">View Publication</a></p>` : ''}
         `;
         publicationsContainer.appendChild(pubElement);
     });

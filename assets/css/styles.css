@@ -78,6 +78,16 @@ nav {
     padding: 0 20px; /* Add padding for better text readability on mobile */
 }
 
+/* Hero section link styling */
+.hero-content a {
+  color: white;
+  text-decoration: underline;
+}
+
+.hero-content a:hover {
+  color: #f0f0f0; /* Slightly different shade of white for hover state */
+}
+
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
