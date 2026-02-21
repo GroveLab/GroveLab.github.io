@@ -1,109 +1,149 @@
 main {
-    margin-top: 80px; /* Match the header height */
-    padding-top: 80px; /* Reduced since we removed the title */
+    padding-top: 20px;
 }
 
 h1 {
+    font-family: 'Space Grotesk', sans-serif;
     text-align: center;
-    color: #0077be;
+    color: var(--accent-blue);
     margin-bottom: 40px;
 }
 
 .team-section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
-.team-section h2 {
-    color: #333;
-    margin-bottom: 30px;
-}
-
+/* ── TEAM GRID ── */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
+    grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+    gap: 24px;
+    padding: 12px 0;
 }
 
 .team-member {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 24px 28px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .team-member:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    border-color: var(--border-accent);
+    box-shadow: 0 28px 56px rgba(0, 0, 0, 0.45), 0 0 48px var(--glow);
 }
 
+.team-member:hover::before { opacity: 1; }
+
+/* ── MEMBER PHOTO ── */
 .member-image {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 20px;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 24px;
     border-radius: 50%;
     overflow: hidden;
+    border: 2px solid var(--border-accent);
+    box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.06);
+    transition: box-shadow 0.3s ease;
+}
+
+.team-member:hover .member-image {
+    box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.14);
 }
 
 .member-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: saturate(0.85);
+    transition: filter 0.3s ease;
 }
 
-team-member h3 {
-    color: #0077be;
-    margin: 10px 0;
-}
+.team-member:hover .member-image img { filter: saturate(1.05); }
 
+/* ── MEMBER INFO ── */
 .team-member h3 {
-    color: #0077be;
-    margin: 10px 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
 }
 
 .position {
-    font-weight: 600;
-    color: #666;
-    margin-bottom: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    margin-bottom: 18px;
+}
+
+.expertise {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-style: italic;
+    line-height: 1.55;
 }
 
 .bio {
-    font-size: 0.9em;
-    line-height: 1.5;
-    color: #555;
-    margin-bottom: 20px;
-    height: 120px; /* Set fixed height for bios to align items */
-    overflow-y: auto; /* Allow scrolling for longer bios */
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    min-height: 52px;
 }
 
+/* ── SOCIAL LINKS ── */
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
     align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
 }
 
 .social-links a {
-    color: #0077be;
-    font-size: 22px; /* Return to original size for email icon */
-    transition: color 0.3s ease;
+    color: var(--text-muted);
+    font-size: 18px;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .social-links a:hover {
-    color: #005fa3;
+    color: var(--accent-blue);
+    transform: translateY(-2px);
 }
 
-.social-links a:hover {
-    color: #005fa3;
-}
-
-.bluesky-icon, .orcid-icon {
-    width: 24px;
-    height: 24px;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    margin-top: 4px; /* Adjusted margin to center icon */ 
+.bluesky-icon,
+.orcid-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.45;
+    transition: opacity 0.2s ease;
+    filter: brightness(10);
 }
 
 .social-links a:hover .bluesky-icon,
@@ -111,21 +151,43 @@ team-member h3 {
     opacity: 1;
 }
 
-.expertise {
-    font-size: 0.85em;
-    color: #666;
-    margin-bottom: 12px;
-    font-style: italic;
+/* ── ALUMNI ── */
+.alumni-section {
+    margin-top: 20px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
 }
 
-/* Ensure these don't conflict with the mobile menu */
+.alumni-heading {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 28px 0;
+}
+
+.team-grid--alumni {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 260px));
+}
+
+.team-member--alumni {
+    opacity: 0.82;
+    filter: saturate(0.75);
+    transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member--alumni:hover {
+    opacity: 1;
+    filter: saturate(1);
+}
+
 @media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-    
+    .team-grid { grid-template-columns: 1fr; }
+
     .member-image {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
 }
