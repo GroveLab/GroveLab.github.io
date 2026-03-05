@@ -1,77 +1,167 @@
-main {
-    margin-top: 80px; /* Match the header height */
-}
-
 h1 {
+    font-family: 'Space Grotesk', sans-serif;
     text-align: center;
-    color: #0077be;
+    color: var(--accent-blue);
     margin-bottom: 40px;
 }
 
-.research-section {
-    margin-bottom: 60px;
+/* ── BANNER ── */
+.banner {
+    background: linear-gradient(135deg,
+        rgba(56, 189, 248, 0.07) 0%,
+        rgba(129, 140, 248, 0.07) 100%
+    );
+    border: 1px solid var(--border-accent);
+    border-radius: 16px;
+    padding: 52px 48px;
+    margin-bottom: 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: -60%; left: -30%;
+    width: 160%; height: 160%;
+    background: radial-gradient(ellipse at center,
+        rgba(56, 189, 248, 0.04) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.banner h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    letter-spacing: -0.02em;
+}
+
+.banner p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.80;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ── RESEARCH SECTIONS ── */
+.research-section {
+    margin-bottom: 80px;
+    padding-top: 56px;
+    border-top: 1px solid var(--border);
+}
+
+.research-section:first-of-type { border-top: none; }
 
 .research-section h2 {
-    color: #333;
-    margin-bottom: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    letter-spacing: -0.02em;
 }
 
-.research-section ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.research-section ul li {
-    margin-bottom: 10px;
-    color: #555;
+.research-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 28px;
+    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-indigo));
+    border-radius: 2px;
+    flex-shrink: 0;
 }
 
 .research-content {
     display: flex;
-    gap: 30px;
+    gap: 52px;
     align-items: flex-start;
-    margin-bottom: 20px;
 }
 
 .research-image {
-    max-width: 400px;
+    max-width: 420px;
     width: 100%;
     height: auto;
-    object-fit: contain; /* Changed from cover to contain */
+    object-fit: contain;
     aspect-ratio: 4/3;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
 }
 
-.research-text {
-    flex: 1;
+.research-text { flex: 1; }
+
+.research-text p {
+    color: var(--text-secondary);
+    line-height: 1.80;
+    margin-bottom: 24px;
+    font-size: 15px;
 }
 
-.banner {
-    background-color: #f5f5f5;
-    padding: 40px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    text-align: center;
+.research-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.banner h2 {
-    color: #0077be;
-    margin-bottom: 20px;
+.research-section ul li {
+    padding: 18px 0 18px 24px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    line-height: 1.70;
+    font-size: 15px;
 }
+
+.research-section ul li:first-child { border-top: 1px solid var(--border); }
+
+.research-section ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    top: 20px;
+    color: var(--accent-blue);
+    font-size: 11px;
+}
+
+.research-section ul li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    letter-spacing: 0.01em;
+}
+
+.research-section ul li a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.28);
+    transition: border-color 0.2s ease;
+}
+
+.research-section ul li a:hover { border-color: var(--accent-blue); }
 
 @media (max-width: 768px) {
     .research-content {
         flex-direction: column;
+        gap: 28px;
     }
 
     .research-image {
         max-width: 100%;
-        width: 100%;
-        height: auto;
-        object-fit: contain; /* Changed from cover to contain */
         aspect-ratio: 16/9;
-        margin-bottom: 20px;
     }
+
+    .banner {
+        padding: 32px 24px;
+    }
+
+    .banner h2 { font-size: 22px; }
 }
