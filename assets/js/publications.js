@@ -21,6 +21,7 @@ const JOURNAL_STYLES = {
     'elife':                       { local: null,                                          domain: 'elifesciences.org',       abbr: 'ELF',  color: '#d97706' },
     'pnas':                        { local: null,                                          domain: 'pnas.org',                abbr: 'PNAS', color: '#0369a1' },
     'proceedings of the national academy of sciences': { local: null,                     domain: 'pnas.org',                abbr: 'PNAS', color: '#0369a1' },
+    'annual review':               { local: 'assets/images/journal-logos/annual-reviews.jpg', domain: 'annualreviews.org',  abbr: 'AR',   color: '#2c5a7f' },
     'embo reports':                { local: 'assets/images/journal-logos/embo-reports.png', domain: 'embopress.org',         abbr: 'EMBO', color: '#0f766e' },
     'molecular systems biology':   { local: 'assets/images/journal-logos/molecular-systems-biology.png', domain: 'embopress.org', abbr: 'MSB', color: '#0891b2' },
     'journal of virology':         { local: null,                                          domain: 'asm.org',                 abbr: 'JVI',  color: '#0d9488' },
