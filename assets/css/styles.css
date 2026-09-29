@@ -25,6 +25,12 @@ h1, h2, h3 { text-wrap: balance; }
 p { text-wrap: pretty; }
 .nowrap { white-space: nowrap; }
 
+/* Keep a long name on one line, but only where it fits: below this the string is
+   wider than the text column and would force horizontal scrolling. */
+@media (min-width: 481px) {
+    .nowrap-wide { white-space: nowrap; }
+}
+
 :focus-visible {
     outline: 2px solid var(--accent-blue);
     outline-offset: 3px;
