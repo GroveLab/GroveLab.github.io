@@ -11,7 +11,7 @@ function loadSlideshow() {
     imageNames.forEach((imageName, index) => {
         const img = document.createElement('img');
         img.src = `assets/images/slideshow/${imageName}`;
-        img.alt = `Slide ${index + 1}`;
+        img.alt = '';  // decorative background artwork
         if (index === 0) img.classList.add('active');
         slideshow.appendChild(img);
         slides.push(img);
@@ -31,5 +31,8 @@ function nextSlide() {
 // Load the slideshow when the page is ready
 document.addEventListener('DOMContentLoaded', () => {
     loadSlideshow();
-    setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    // Respect the OS "reduce motion" setting: show the first image only
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
 });

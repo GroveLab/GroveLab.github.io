@@ -18,6 +18,17 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Even out line lengths so headings don't leave a lone word on the last line */
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+.nowrap { white-space: nowrap; }
+
+:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 body, html {
     height: 100%;
     margin: 0;
@@ -110,7 +121,8 @@ nav {
 /* ── HERO ── */
 .hero {
     position: relative;
-    height: 100vh;
+    height: calc(88vh - var(--header-height));
+    min-height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -309,6 +321,7 @@ nav {
     font-weight: 500;
     transition: all 0.2s ease;
     letter-spacing: 0.02em;
+    white-space: nowrap;
 }
 
 .btn:hover {
@@ -452,4 +465,9 @@ main {
     .hero { height: 72vh; }
     .hero h1 { font-size: 28px; }
     .hero p  { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slideshow img { transition: none; }
+    .featured-card:hover .featured-image img { transform: none; }
 }
