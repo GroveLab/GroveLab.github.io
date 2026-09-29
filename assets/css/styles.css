@@ -13,7 +13,7 @@
     --border:          rgba(148, 163, 184, 0.10);
     --border-accent:   rgba(56, 189, 248, 0.28);
     --glow:            rgba(56, 189, 248, 0.12);
-    --header-height:   72px;
+    --header-height:   88px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -57,25 +57,36 @@ nav {
 
 .logo {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
     letter-spacing: -0.02em;
     transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+/* The V of "Grove": the HCV E1 helical hairpin (AF-0000000212006472, res 61-101),
+   Mol* render coloured by pLDDT. Taller than the caps and dropped below the baseline. */
+.logo-v {
+    height: 1.25em;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.22em;
+    margin: 0 -0.06em 0 0.02em;   /* the long arm's C-terminal tail overhangs the e */
 }
 
 .logo:hover { color: var(--accent-blue); }
 
 .nav-links {
     display: flex;
-    gap: 36px;
+    gap: 34px;
     align-items: center;
 }
 
 .nav-links a {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--text-secondary);
     text-decoration: none;
@@ -380,7 +391,15 @@ main {
     .nav-links { display: flex !important; }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo { font-size: 28px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 15px; }
+}
+
 @media (max-width: 768px) {
+    :root { --header-height: 76px; }
+    .logo { font-size: 28px; }
     .menu-toggle { display: block; }
 
     .nav-links {
