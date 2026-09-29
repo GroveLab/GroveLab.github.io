@@ -369,11 +369,83 @@ nav {
 footer {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border);
-    padding: 28px 28px;
+    padding: 40px 28px 32px;
     text-align: center;
     color: var(--text-muted);
     font-size: 13px;
 }
+
+footer p { margin: 0; }
+
+.footer-where {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.footer-where a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-where a:hover {
+    color: var(--accent-blue);
+    border-color: var(--border-accent);
+}
+
+.footer-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 28px;
+    margin-bottom: 20px;
+}
+
+.footer-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-contact a:hover { color: var(--accent-blue); }
+
+.footer-contact img {
+    width: 15px;
+    height: 15px;
+    opacity: 0.75;
+}
+
+.footer-contact a:hover img { opacity: 1; }
+
+/* ── SKIP LINK ── */
+/* Off-screen until focused, so keyboard users can jump past the nav */
+.skip-link {
+    position: fixed;
+    /* An explicit top is required: without it the static position inherits main's
+       collapsed 88px top margin and the link hangs visibly over the nav. */
+    top: 0;
+    left: 16px;
+    transform: translateY(-140%);
+    z-index: 2000;
+    background: var(--accent-blue);
+    color: var(--bg-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
 
 /* ── LAYOUT ── */
 /* `main.container` needs the higher specificity: .container's `margin: 0 auto`

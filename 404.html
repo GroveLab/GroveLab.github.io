@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grove Lab - Page Not Found</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Root-relative paths: this page is served for any unknown URL, at any depth -->
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260929h">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <style>
+        .notfound {
+            min-height: calc(100vh - var(--header-height) - 220px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px 100px;
+        }
+        .notfound-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin: 0 0 18px;
+        }
+        .notfound h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 0 16px;
+            color: var(--text-primary);
+        }
+        .notfound p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 460px;
+            margin: 0 0 32px;
+        }
+        .notfound-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        @media (max-width: 480px) {
+            .notfound h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/index.html" class="logo"><img src="/assets/images/grove-lab-logo.png" alt="Grove Lab" width="155" height="40"></a>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="/index.html">Home</a>
+                    <a href="/research.html">Research</a>
+                    <a href="/team.html">Team</a>
+                    <a href="/publications.html">Publications</a>
+                    <a href="/news.html">News</a>
+                    <a href="/join.html">Join Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="notfound">
+            <p class="notfound-code">// Error 404</p>
+            <h1>This page has no structure, predicted or otherwise</h1>
+            <p>We couldn't find the page you were looking for. It may have moved, or the link may be out of date.</p>
+            <div class="notfound-links">
+                <a href="/index.html" class="btn btn-primary">Back to home →</a>
+                <a href="/research.html" class="btn btn-ghost">Research →</a>
+                <a href="/publications.html" class="btn btn-ghost">Publications →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-where">
+                <a href="https://www.gla.ac.uk/research/az/cvr/" target="_blank" rel="noopener">MRC-University of Glasgow Centre for Virus Research</a> &nbsp;·&nbsp; Glasgow, UK
+            </p>
+            <p class="footer-contact">
+                <a href="mailto:joe.grove@glasgow.ac.uk"><i class="fas fa-envelope"></i> joe.grove@glasgow.ac.uk</a>
+                <a href="https://bsky.app/profile/grovearmada.bsky.social" target="_blank" rel="noopener"><img src="/assets/images/icons/bluesky.png" alt=""> @grovearmada</a>
+            </p>
+            <p>&copy; 2026 Grove Lab. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/assets/js/mobile-nav.js"></script>
+</body>
+</html>
