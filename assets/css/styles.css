@@ -279,6 +279,15 @@ nav {
     margin: 0 0 36px 0;
 }
 
+.featured-content p a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+    transition: border-color 0.2s ease;
+}
+
+.featured-content p a:hover { border-color: var(--accent-blue); }
+
 .featured-actions {
     display: flex;
     gap: 12px;
