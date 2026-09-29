@@ -53,6 +53,9 @@ h1 {
 
 .news-item:hover .news-image img { transform: scale(1.05); }
 
+/* Tall portrait figures: keep the top of the image in frame rather than the middle */
+.news-image--top img { object-position: top; }
+
 /* ── NEWS TEXT ── */
 .news-item h3 {
     font-family: 'Space Grotesk', sans-serif;

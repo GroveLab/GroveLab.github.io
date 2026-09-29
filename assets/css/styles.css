@@ -18,6 +18,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html { scroll-padding-top: calc(var(--header-height) + 12px); }
+
 /* Even out line lengths so headings don't leave a lone word on the last line */
 h1, h2, h3 { text-wrap: balance; }
 p { text-wrap: pretty; }
@@ -368,7 +370,10 @@ footer {
 }
 
 /* ── LAYOUT ── */
-main {
+/* `main.container` needs the higher specificity: .container's `margin: 0 auto`
+   otherwise overrides this margin-top, and the fixed header covers the top of the page. */
+main,
+main.container {
     margin-top: var(--header-height);
     position: relative;
 }
